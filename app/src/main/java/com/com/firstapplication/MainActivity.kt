@@ -2,13 +2,16 @@ package com.com.firstapplication
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
 
+    fun f0() {
         val tag = "MainActivity"
 
         val a = 10.0f
@@ -37,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         for (b0 in B) {
             Log.i(tag, "$b0")
         }
-
     }
 
     fun add(a: Double, b: Double): Double {
