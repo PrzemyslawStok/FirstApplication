@@ -9,6 +9,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val counterText: TextView = findViewById(R.id.counterTextView)
+        counterText.text = "1"
     }
 
     fun f0() {
