@@ -2,16 +2,24 @@ package com.com.firstapplication
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    var counterText: TextView? = null
+    var mainBackround: LinearLayout? = null
+
+    var counter = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val counterText: TextView = findViewById(R.id.counterTextView)
-        counterText.text = "1"
+        mainBackround = findViewById(R.id.mainBackground)
+
+        counterText = findViewById(R.id.counterTextView)
+        counterText?.text = "${counter}"
     }
 
     fun f0() {
