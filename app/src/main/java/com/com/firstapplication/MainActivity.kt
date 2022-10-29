@@ -19,12 +19,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mainBackround = findViewById(R.id.mainBackground)
-
         counterText = findViewById(R.id.counterTextView)
+        resetButton = findViewById(R.id.resetButton)
+
         counterText?.text = "${counter}"
 
         mainBackround?.setOnClickListener {
             counter += 1
+            counterText?.text = "${counter}"
+        }
+
+        resetButton?.setOnClickListener {
+            counter = 0
             counterText?.text = "${counter}"
         }
 
