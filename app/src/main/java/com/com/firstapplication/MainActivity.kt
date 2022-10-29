@@ -29,6 +29,12 @@ class MainActivity : AppCompatActivity() {
             counterText?.text = "${counter}"
         }
 
+        mainBackround?.setOnLongClickListener {
+            counter = 0
+            counterText?.text = "${counter}"
+            true
+        }
+
         resetButton?.setOnClickListener {
             counter = 0
             counterText?.text = "${counter}"
