@@ -2,6 +2,7 @@ package com.com.firstapplication
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
     var counterText: TextView? = null
     var mainBackround: LinearLayout? = null
+    var resetButton: Button? = null
 
     var counter = 0
 
@@ -20,6 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         counterText = findViewById(R.id.counterTextView)
         counterText?.text = "${counter}"
+
+        mainBackround?.setOnClickListener {
+            counter += 1
+            counterText?.text = "${counter}"
+        }
+
     }
 
     fun f0() {
