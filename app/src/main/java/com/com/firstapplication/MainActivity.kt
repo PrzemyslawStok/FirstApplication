@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
     var counterText: TextView? = null
     var mainBackround: LinearLayout? = null
-    var resetButton: Button? = null
 
     var counter = 0
 
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         mainBackround = findViewById(R.id.mainBackground)
         counterText = findViewById(R.id.counterTextView)
-        resetButton = findViewById(R.id.resetButton)
 
         counterText?.text = "${counter}"
 
@@ -33,11 +31,6 @@ class MainActivity : AppCompatActivity() {
             counter = 0
             counterText?.text = "${counter}"
             true
-        }
-
-        resetButton?.setOnClickListener {
-            counter = 0
-            counterText?.text = "${counter}"
         }
 
     }

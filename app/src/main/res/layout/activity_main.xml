@@ -16,11 +16,4 @@
         android:textSize="50sp"
         android:text="@string/counterInit"
          />
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/resetButton"
-        />
-
 </LinearLayout>
