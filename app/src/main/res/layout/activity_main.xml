@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#E2F7FA"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".Game1Activity">
 
     <TextView
         android:id="@+id/counterTextView"

@@ -2,12 +2,11 @@ package com.com.firstapplication
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class Game1Activity : AppCompatActivity() {
     var counterText: TextView? = null
     var mainBackround: LinearLayout? = null
 
