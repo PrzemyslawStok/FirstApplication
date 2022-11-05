@@ -12,5 +12,21 @@
         android:background="#81D6CE"
         android:layout_centerInParent="true"
         />
+    <View
+        android:id="@+id/viewBelow"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#2EE4D3"
+        android:layout_below="@id/centerView"
+        android:layout_centerInParent="true"
+        />
+    <View
+        android:id="@+id/viewAbove"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#2EE4D3"
+        android:layout_above="@id/centerView"
+        android:layout_centerInParent="true"
+        />
 
 </RelativeLayout>
