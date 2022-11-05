@@ -3,4 +3,5 @@
     <string name="counterInit">0</string>
     <string name="resetButton">Reset</string>
     <string name="gra_1">Gra 1</string>
+    <string name="gra_2">Gra 2</string>
 </resources>
