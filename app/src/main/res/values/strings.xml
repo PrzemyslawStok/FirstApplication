@@ -5,4 +5,5 @@
     <string name="gra_1">Gra 1</string>
     <string name="gra_2">Gra 2</string>
     <string name="initValue">0</string>
+    <string name="ilosc_prob">Ilość prób: </string>
 </resources>

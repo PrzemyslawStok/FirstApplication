@@ -1,11 +1,20 @@
 package com.com.firstapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.com.firstapplication.databinding.ActivityGame2Binding
 
 class Game2Activity : AppCompatActivity() {
+    lateinit var binding: ActivityGame2Binding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game2)
+        binding = ActivityGame2Binding.inflate(layoutInflater)
+
+        setContentView(binding.root)
+
+
+        //setContentView(R.layout.activity_game2)
+
     }
 }
