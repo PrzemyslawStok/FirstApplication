@@ -4,4 +4,5 @@
     <string name="resetButton">Reset</string>
     <string name="gra_1">Gra 1</string>
     <string name="gra_2">Gra 2</string>
+    <string name="initValue">0</string>
 </resources>
