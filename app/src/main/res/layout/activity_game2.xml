@@ -33,7 +33,6 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#2EE4D3"
-        android:layout_above="@id/centerView"
         android:layout_toStartOf="@id/centerView"
         android:layout_centerInParent="true"
         />
