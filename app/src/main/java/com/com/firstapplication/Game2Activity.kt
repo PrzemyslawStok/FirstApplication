@@ -13,12 +13,17 @@ class Game2Activity : AppCompatActivity() {
     //var counterText: TextView? = null
     lateinit var counterTextView: TextView
 
-    val leftInit = -5
-    val rightInit = -7
-    val downInit = 11
-    val upInit = 3
+    var leftInit = 0
+    var rightInit = 0
+    var downInit = 0
+    var upInit = 0
 
-    val initTable = intArrayOf(-5, -7, 11, 3, 10)
+    val levelArray = arrayOf(
+        intArrayOf(-5, -7, 11, 3, 10),
+        intArrayOf(-7, -11, 5, 13, 10)
+    )
+
+    var currentLevel = 0
 
     var mainValue = 0
     var noTrials = 0
@@ -68,11 +73,19 @@ class Game2Activity : AppCompatActivity() {
     }
 
     fun initLayout() {
-        binding.viewRight.text = initText(initTable[0])
-        binding.viewLeft.text = initText(initTable[1])
-        binding.viewDown.text = initText(initTable[2])
-        binding.viewUp.text = initText(initTable[3])
+        val initTable = levelArray[currentLevel]
+
+        leftInit = initTable[0]
+        rightInit = initTable[1]
+        upInit = initTable[2]
+        downInit = initTable[3]
+
+        binding.viewLeft.text = initText(leftInit)
+        binding.viewRight.text = initText(rightInit)
+        binding.viewDown.text = initText(downInit)
+        binding.viewUp.text = initText(upInit)
         mainValue = initTable[4]
+
 
         binding.centerView.text = "$mainValue"
     }
@@ -89,6 +102,7 @@ class Game2Activity : AppCompatActivity() {
         counterTextView.setText("$noTrials")
 
         if (mainValue == 0) {
+            currentLevel++
             Toast.makeText(this, "Gra ukończona po ${noTrials} próbach.", Toast.LENGTH_LONG).show()
             resetGame()
         }
@@ -101,5 +115,6 @@ class Game2Activity : AppCompatActivity() {
         binding.centerView.text = "$mainValue"
         counterTextView.text = "$noTrials"
 
+        initLayout()
     }
 }
