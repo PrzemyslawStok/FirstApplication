@@ -94,6 +94,9 @@ class Game2Activity : AppCompatActivity() {
 
     fun resetGame() {
         mainValue = Random.nextInt(10, 100)
+        noTrials = 0
         binding.centerView.text = "$mainValue"
+        counterTextView.text = "$noTrials"
+
     }
 }
