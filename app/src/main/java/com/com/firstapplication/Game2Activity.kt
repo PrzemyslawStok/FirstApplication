@@ -42,16 +42,22 @@ class Game2Activity : AppCompatActivity() {
         binding.viewRight.setOnClickListener {
             mainValue += rightInit
             binding.centerView.text = "$mainValue"
+
+            checkGame()
         }
 
         binding.viewDown.setOnClickListener {
             mainValue += downInit
             binding.centerView.text = "$mainValue"
+
+            checkGame()
         }
 
         binding.viewUp.setOnClickListener {
             mainValue += upInit
             binding.centerView.text = "$mainValue"
+
+            checkGame()
         }
 
         resetGame()
@@ -79,8 +85,11 @@ class Game2Activity : AppCompatActivity() {
         noTrials++
         counterTextView.setText("$noTrials")
 
-        Toast.makeText(this, "Gra ukończona", Toast.LENGTH_LONG).show()
-        resetGame()
+        if (mainValue == 0) {
+            Toast.makeText(this, "Gra ukończona po ${noTrials} próbach.", Toast.LENGTH_LONG).show()
+            resetGame()
+        }
+
     }
 
     fun resetGame() {
