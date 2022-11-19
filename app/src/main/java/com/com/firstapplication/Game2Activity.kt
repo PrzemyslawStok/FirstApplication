@@ -5,6 +5,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.com.firstapplication.databinding.ActivityGame2Binding
+import kotlin.random.Random
 
 class Game2Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame2Binding
@@ -83,6 +84,6 @@ class Game2Activity : AppCompatActivity() {
     }
 
     fun resetGame() {
-
+        mainValue = Random.nextInt(10, 100)
     }
 }
