@@ -79,6 +79,7 @@ class Game2Activity : AppCompatActivity() {
         counterTextView.setText("$noTrials")
 
         Toast.makeText(this, "Gra ukończona", Toast.LENGTH_LONG).show()
+        resetGame()
     }
 
     fun resetGame() {
