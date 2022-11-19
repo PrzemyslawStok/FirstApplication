@@ -18,6 +18,8 @@ class Game2Activity : AppCompatActivity() {
     val downInit = 11
     val upInit = 3
 
+    val initTable = intArrayOf(-5, -7, 11, 3, 10)
+
     var mainValue = 0
     var noTrials = 0
 
@@ -32,6 +34,7 @@ class Game2Activity : AppCompatActivity() {
         setContentView(binding.root)
 
         initLayout()
+
         binding.viewLeft.setOnClickListener {
             mainValue += leftInit
             binding.centerView.text = "$mainValue"
@@ -60,18 +63,18 @@ class Game2Activity : AppCompatActivity() {
             checkGame()
         }
 
-        resetGame()
-
-
         //setContentView(R.layout.activity_game2)
 
     }
 
     fun initLayout() {
-        binding.viewRight.text = initText(rightInit)
-        binding.viewLeft.text = initText(leftInit)
-        binding.viewDown.text = initText(downInit)
-        binding.viewUp.text = initText(upInit)
+        binding.viewRight.text = initText(initTable[0])
+        binding.viewLeft.text = initText(initTable[1])
+        binding.viewDown.text = initText(initTable[2])
+        binding.viewUp.text = initText(initTable[3])
+        mainValue = initTable[4]
+
+        binding.centerView.text = "$mainValue"
     }
 
     fun initText(value: Int): String {
