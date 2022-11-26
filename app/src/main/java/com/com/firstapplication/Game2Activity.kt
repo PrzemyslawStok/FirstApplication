@@ -89,9 +89,8 @@ class Game2Activity : AppCompatActivity() {
         binding.viewUp.text = initText(upInit)
         mainValue = initTable[4]
 
-
         binding.centerView.text = "$mainValue"
-        levelTextView.text = "..."
+        levelTextView.text = "${currentLevel+1}"
     }
 
     fun initText(value: Int): String {
@@ -111,7 +110,9 @@ class Game2Activity : AppCompatActivity() {
             currentLevel++
             if (currentLevel >= levelArray.size) {
                 endGame()
-            }
+            } else
+                levelTextView.text = "${currentLevel+1}"
+
             resetGame()
         }
 
