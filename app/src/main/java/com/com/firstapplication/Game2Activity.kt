@@ -102,8 +102,12 @@ class Game2Activity : AppCompatActivity() {
         counterTextView.setText("$noTrials")
 
         if (mainValue == 0) {
+            Toast.makeText(this, "Gra ukończona po ${noTrials} próbach.", Toast.LENGTH_LONG)
+                .show()
             currentLevel++
-            Toast.makeText(this, "Gra ukończona po ${noTrials} próbach.", Toast.LENGTH_LONG).show()
+            if (currentLevel >= levelArray.size) {
+                endGame()
+            }
             resetGame()
         }
 
@@ -116,5 +120,10 @@ class Game2Activity : AppCompatActivity() {
         counterTextView.text = "$noTrials"
 
         initLayout()
+    }
+
+    fun endGame() {
+        currentLevel = 0
+        Toast.makeText(this, "Gra ukończona", Toast.LENGTH_LONG).show()
     }
 }
