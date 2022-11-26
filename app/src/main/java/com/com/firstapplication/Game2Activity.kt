@@ -12,6 +12,7 @@ class Game2Activity : AppCompatActivity() {
 
     //var counterText: TextView? = null
     lateinit var counterTextView: TextView
+    lateinit var levelTextView: TextView
 
     var leftInit = 0
     var rightInit = 0
@@ -33,6 +34,8 @@ class Game2Activity : AppCompatActivity() {
         binding = ActivityGame2Binding.inflate(layoutInflater)
 
         counterTextView = binding.counterTextView
+        levelTextView = binding.levelTextView
+
         counterTextView.setText("$noTrials")
 
 
@@ -88,6 +91,7 @@ class Game2Activity : AppCompatActivity() {
 
 
         binding.centerView.text = "$mainValue"
+        levelTextView.text = "..."
     }
 
     fun initText(value: Int): String {

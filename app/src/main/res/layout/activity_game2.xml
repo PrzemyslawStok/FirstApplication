@@ -96,5 +96,4 @@
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@id/counterView"
         />
-
 </RelativeLayout>
