@@ -20,12 +20,15 @@ class Game2Activity : AppCompatActivity() {
     var upInit = 0
 
     val levelArray = arrayOf(
-        intArrayOf(-3, -15, 10, 24, 7),
-        intArrayOf(-5, -7, 11, 3, 9),
-        intArrayOf(-7, -11, 5, 13, 10)
+        intArrayOf(18, 4, -5, -1, 6, 0),
+        intArrayOf(-3, -15, 10, 24, 7, 0),
+        intArrayOf(-5, -7, 11, 3, 9, 0),
+        intArrayOf(-7, -11, 5, 13, 10, 0),
+        intArrayOf(-7, -8, 5, 3, 10, 0)
     )
 
     var currentLevel = 0
+    var currentLevelRecord = 0
 
     var mainValue = 0
     var noTrials = 0
@@ -91,7 +94,7 @@ class Game2Activity : AppCompatActivity() {
         mainValue = initTable[4]
 
         binding.centerView.text = "$mainValue"
-        levelTextView.text = "${currentLevel+1}"
+        levelTextView.text = "${currentLevel + 1}"
     }
 
     fun initText(value: Int): String {
@@ -112,7 +115,7 @@ class Game2Activity : AppCompatActivity() {
             if (currentLevel >= levelArray.size) {
                 endGame()
             } else
-                levelTextView.text = "${currentLevel+1}"
+                levelTextView.text = "${currentLevel + 1}"
 
             resetGame()
         }
