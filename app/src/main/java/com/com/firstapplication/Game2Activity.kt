@@ -21,7 +21,8 @@ class Game2Activity : AppCompatActivity() {
 
     val levelArray = arrayOf(
         intArrayOf(-5, -7, 11, 3, 10),
-        intArrayOf(-7, -11, 5, 13, 10)
+        intArrayOf(-7, -11, 5, 13, 10),
+        intArrayOf(-3, -15, 10, 24, 10)
     )
 
     var currentLevel = 0
