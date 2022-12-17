@@ -20,9 +20,9 @@ class Game2Activity : AppCompatActivity() {
     var upInit = 0
 
     val levelArray = arrayOf(
+        intArrayOf(-3, -15, 10, 24, 10),
         intArrayOf(-5, -7, 11, 3, 10),
-        intArrayOf(-7, -11, 5, 13, 10),
-        intArrayOf(-3, -15, 10, 24, 10)
+        intArrayOf(-7, -11, 5, 13, 10)
     )
 
     var currentLevel = 0
