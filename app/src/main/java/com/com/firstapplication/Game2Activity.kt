@@ -13,6 +13,7 @@ class Game2Activity : AppCompatActivity() {
     //var counterText: TextView? = null
     lateinit var counterTextView: TextView
     lateinit var levelTextView: TextView
+    lateinit var recordTextView: TextView
 
     var leftInit = 0
     var rightInit = 0
@@ -39,6 +40,7 @@ class Game2Activity : AppCompatActivity() {
 
         counterTextView = binding.counterTextView
         levelTextView = binding.levelTextView
+        recordTextView = binding.recordTextView
 
         counterTextView.setText("$noTrials")
 
@@ -95,6 +97,7 @@ class Game2Activity : AppCompatActivity() {
 
         binding.centerView.text = "$mainValue"
         levelTextView.text = "${currentLevel + 1}"
+        recordTextView.text = "$currentLevelRecord"
     }
 
     fun initText(value: Int): String {
@@ -124,6 +127,9 @@ class Game2Activity : AppCompatActivity() {
 
     fun resetGame() {
         mainValue = Random.nextInt(10, 100)
+        if (noTrials < currentLevelRecord) {
+            currentLevelRecord = noTrials
+        }
         noTrials = 0
         binding.centerView.text = "$mainValue"
         counterTextView.text = "$noTrials"
