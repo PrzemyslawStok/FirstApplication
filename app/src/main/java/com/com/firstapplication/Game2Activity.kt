@@ -85,12 +85,15 @@ class Game2Activity : AppCompatActivity() {
 
     fun getGameState() {
         val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        val currentLevel = sharedPref.getInt(currentLevelKey, 2)
+        val currentLevel = sharedPref.getInt(currentLevelKey, 0)
     }
 
     fun saveGameState() {
         val sharedPref = getPreferences(Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
+
+        editor.putInt(currentLevelKey, currentLevel)
+        editor.apply()
     }
 
     fun initLayout() {
