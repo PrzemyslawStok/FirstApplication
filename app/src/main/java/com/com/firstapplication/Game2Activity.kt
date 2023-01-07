@@ -20,12 +20,12 @@ class Game2Activity : AppCompatActivity() {
     var downInit = 0
     var upInit = 0
 
-    val levelArray = arrayOf(
-        intArrayOf(18, 4, -5, -1, 6, 5),
-        intArrayOf(-3, -15, 10, 24, 7, 7),
-        intArrayOf(-5, -7, 11, 3, 9, 10),
-        intArrayOf(-7, -11, 5, 13, 10, 15),
-        intArrayOf(-7, -8, 5, 3, 10, 20)
+    var levelArray = arrayOf(
+        intArrayOf(18, 4, -5, -1, 6, 0),
+        intArrayOf(-3, -15, 10, 24, 7, 0),
+        intArrayOf(-5, -7, 11, 3, 9, 0),
+        intArrayOf(-7, -11, 5, 13, 10, 0),
+        intArrayOf(-7, -8, 5, 3, 10, 0)
     )
 
     var currentLevel = 0
@@ -88,12 +88,13 @@ class Game2Activity : AppCompatActivity() {
         rightInit = initTable[1]
         upInit = initTable[2]
         downInit = initTable[3]
+        mainValue = initTable[4]
+        currentLevelRecord = initTable[5]
 
         binding.viewLeft.text = initText(leftInit)
         binding.viewRight.text = initText(rightInit)
         binding.viewDown.text = initText(downInit)
         binding.viewUp.text = initText(upInit)
-        mainValue = initTable[4]
 
         binding.centerView.text = "$mainValue"
         levelTextView.text = "${currentLevel + 1}"
