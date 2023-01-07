@@ -21,7 +21,7 @@ class Game2Activity : AppCompatActivity() {
     var upInit = 0
 
     var levelArray = arrayOf(
-        intArrayOf(18, 4, -5, -1, 6, 0),
+        intArrayOf(18, 4, -5, -1, 6, 5),
         intArrayOf(-3, -15, 10, 24, 7, 0),
         intArrayOf(-5, -7, 11, 3, 9, 0),
         intArrayOf(-7, -11, 5, 13, 10, 0),
@@ -113,7 +113,7 @@ class Game2Activity : AppCompatActivity() {
         counterTextView.setText("$noTrials")
 
         if (mainValue == 0) {
-            Toast.makeText(this, "Gra ukończona po ${noTrials} próbach.", Toast.LENGTH_LONG)
+            Toast.makeText(this, "Poziom ${currentLevel} ukończony po ${noTrials} próbach.", Toast.LENGTH_LONG)
                 .show()
             currentLevel++
             if (currentLevel >= levelArray.size) {
@@ -121,18 +121,16 @@ class Game2Activity : AppCompatActivity() {
             } else
                 levelTextView.text = "${currentLevel + 1}"
 
-            resetGame()
+            nextLevel()
         }
 
     }
 
-    fun resetGame() {
-        mainValue = Random.nextInt(10, 100)
+    fun nextLevel() {
         if (noTrials < currentLevelRecord) {
             currentLevelRecord = noTrials
         }
         noTrials = 0
-        binding.centerView.text = "$mainValue"
         counterTextView.text = "$noTrials"
 
         initLayout()
