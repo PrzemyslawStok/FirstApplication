@@ -83,10 +83,18 @@ class Game2Activity : AppCompatActivity() {
 
     }
 
-    fun initLayout() {
+    fun getGameState() {
         val sharedPref = getPreferences(Context.MODE_PRIVATE)
-
         val currentLevel = sharedPref.getInt(currentLevelKey, 2)
+    }
+
+    fun saveGameState() {
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+    }
+
+    fun initLayout() {
+        getGameState()
 
         val initTable = levelArray[currentLevel]
 
@@ -127,6 +135,8 @@ class Game2Activity : AppCompatActivity() {
             )
                 .show()
             currentLevel++
+            saveGameState()
+
             if (currentLevel >= levelArray.size) {
                 endGame()
             } else
