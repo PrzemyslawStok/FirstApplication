@@ -9,4 +9,5 @@
     <string name="ilosc_prob">Ilość prób: </string>
     <string name="current_level">Poziom:</string>
     <string name="current_level_record">Rekord poziomu:</string>
+    <string name="current_level_value">"current_level_value"</string>
 </resources>

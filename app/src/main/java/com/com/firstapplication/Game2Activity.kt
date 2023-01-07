@@ -1,14 +1,16 @@
 package com.com.firstapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.com.firstapplication.databinding.ActivityGame2Binding
-import kotlin.random.Random
 
 class Game2Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame2Binding
+
+    val currentLevelKey = "current_level_key"
 
     //var counterText: TextView? = null
     lateinit var counterTextView: TextView
@@ -23,7 +25,7 @@ class Game2Activity : AppCompatActivity() {
     var levelArray = arrayOf(
         intArrayOf(18, 4, -5, -1, 6, 5),
         intArrayOf(-3, -15, 10, 24, 7, 0),
-        intArrayOf(-5, -7, 11, 3, 9, 0),
+        intArrayOf(-5, -7, 11, 3, 9, 15),
         intArrayOf(-7, -11, 5, 13, 10, 0),
         intArrayOf(-7, -8, 5, 3, 10, 0)
     )
@@ -82,6 +84,10 @@ class Game2Activity : AppCompatActivity() {
     }
 
     fun initLayout() {
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+
+        val currentLevel = sharedPref.getInt(currentLevelKey, 2)
+
         val initTable = levelArray[currentLevel]
 
         leftInit = initTable[0]
@@ -90,6 +96,7 @@ class Game2Activity : AppCompatActivity() {
         downInit = initTable[3]
         mainValue = initTable[4]
         currentLevelRecord = initTable[5]
+
 
         binding.viewLeft.text = initText(leftInit)
         binding.viewRight.text = initText(rightInit)
@@ -113,7 +120,11 @@ class Game2Activity : AppCompatActivity() {
         counterTextView.setText("$noTrials")
 
         if (mainValue == 0) {
-            Toast.makeText(this, "Poziom ${currentLevel} ukończony po ${noTrials} próbach.", Toast.LENGTH_LONG)
+            Toast.makeText(
+                this,
+                "Poziom ${currentLevel} ukończony po ${noTrials} próbach.",
+                Toast.LENGTH_LONG
+            )
                 .show()
             currentLevel++
             if (currentLevel >= levelArray.size) {
