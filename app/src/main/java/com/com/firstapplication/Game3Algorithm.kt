@@ -19,10 +19,9 @@ class Game3Algorithm {
     }
 
     fun printGameArray() {
-        Log.i(tag, "Game array")
+        Log.i(tag, "Game array:")
         for (row in 0..2) {
             Log.i(tag, arrayRowToString(row))
         }
-
     }
 }
