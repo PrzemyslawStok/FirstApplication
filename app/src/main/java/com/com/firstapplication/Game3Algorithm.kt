@@ -4,9 +4,9 @@ import android.util.Log
 
 class Game3Algorithm {
     val tag = "GameArray"
-    val size = 3
+    val size = 2
 
-    var levelTable = arrayOf(
+    var gameArray = arrayOf(
         intArrayOf(0, 0, 1),
         intArrayOf(0, 0, 0),
         intArrayOf(0, 0, 0)
@@ -15,7 +15,7 @@ class Game3Algorithm {
     fun arrayRowToString(row: Int): String {
         var rowText = ""
         for (j in 0..size) {
-            rowText += "${levelTable[row][j]} "
+            rowText += "${gameArray[row][j]} "
         }
         return rowText
     }
@@ -27,7 +27,17 @@ class Game3Algorithm {
         }
     }
 
-    fun invertRegion(row: Int, col: Int){
+    fun invertRegion(row: Int, col: Int) {
+        printGameArray()
 
+        if (col > 0) {
+
+        }
+
+        printGameArray()
+    }
+
+    fun testGameAgl() {
+        invertRegion(1, 1)
     }
 }

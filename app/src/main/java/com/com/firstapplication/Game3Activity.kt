@@ -19,7 +19,7 @@ class Game3Activity : AppCompatActivity() {
 
         testButton.setOnClickListener {
             val gameAgl = Game3Algorithm()
-            gameAgl.printGameArray()
+            gameAgl.testGameAgl()
         }
     }
 }
