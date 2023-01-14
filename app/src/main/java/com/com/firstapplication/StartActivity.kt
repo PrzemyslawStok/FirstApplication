@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 class StartActivity : AppCompatActivity() {
     var buttonGame1: Button? = null
     var buttonGame2: Button? = null
+    var buttonGame3: Button? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,6 +26,13 @@ class StartActivity : AppCompatActivity() {
             val game1Activity = Intent(this, Game2Activity::class.java)
             startActivity(game1Activity)
         }
+
+        buttonGame3 = findViewById(R.id.buttonGame3)
+        buttonGame3?.setOnClickListener {
+            val game1Activity = Intent(this, Game2Activity::class.java)
+            startActivity(game1Activity)
+        }
+
 
     }
 }

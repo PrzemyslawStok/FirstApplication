@@ -138,12 +138,13 @@ class Game2Activity : AppCompatActivity() {
             )
                 .show()
             currentLevel++
-            saveGameState()
 
             if (currentLevel >= levelArray.size) {
                 endGame()
             } else
                 levelTextView.text = "${currentLevel + 1}"
+
+            saveGameState()
 
             nextLevel()
         }
