@@ -35,10 +35,9 @@ class Game3Algorithm {
 
         for (i in row - 1..row + 1)
             for (j in col - 1..col + 1) {
-
+                gameArray[i][j] = !gameArray[i][j]
             }
 
-        gameArray[row][col] = !gameArray[row][col]
 
         printGameArray()
     }
