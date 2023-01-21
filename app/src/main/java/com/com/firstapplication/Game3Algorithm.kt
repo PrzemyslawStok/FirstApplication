@@ -4,17 +4,19 @@ import android.util.Log
 
 class Game3Algorithm {
     val tag = "GameArray"
-    val size = 2
+    val size = 5
 
     var gameArray = arrayOf(
-        booleanArrayOf(false, false, true),
-        booleanArrayOf(false,false,false),
-        booleanArrayOf(false,false,false)
+        booleanArrayOf(false, false, false, false, true),
+        booleanArrayOf(false, false, false, false, false),
+        booleanArrayOf(false, false, false, false, false),
+        booleanArrayOf(false, false, false, false, false),
+        booleanArrayOf(false, false, false, false, false)
     )
 
     fun arrayRowToString(row: Int): String {
         var rowText = ""
-        for (j in 0..size) {
+        for (j in 0..size - 1) {
             rowText += "${gameArray[row][j]} "
         }
         return rowText
@@ -22,7 +24,7 @@ class Game3Algorithm {
 
     fun printGameArray() {
         Log.i(tag, "Game array:")
-        for (row in 0..size) {
+        for (row in 0..size - 1) {
             Log.i(tag, arrayRowToString(row))
         }
     }
@@ -30,9 +32,11 @@ class Game3Algorithm {
     fun invertRegion(row: Int, col: Int) {
         printGameArray()
 
-        if (col > 0) {
 
-        }
+        for (i in row - 1..row + 1)
+            for (j in col - 1..col + 1) {
+
+            }
 
         gameArray[row][col] = !gameArray[row][col]
 
