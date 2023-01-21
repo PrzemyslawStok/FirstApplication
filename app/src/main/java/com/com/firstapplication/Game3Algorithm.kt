@@ -7,9 +7,9 @@ class Game3Algorithm {
     val size = 2
 
     var gameArray = arrayOf(
-        intArrayOf(0, 0, 1),
-        intArrayOf(0, 0, 0),
-        intArrayOf(0, 0, 0)
+        booleanArrayOf(false, false, true),
+        booleanArrayOf(false,false,false),
+        booleanArrayOf(false,false,false)
     )
 
     fun arrayRowToString(row: Int): String {
@@ -33,6 +33,8 @@ class Game3Algorithm {
         if (col > 0) {
 
         }
+
+        gameArray[row][col] = !gameArray[row][col]
 
         printGameArray()
     }
