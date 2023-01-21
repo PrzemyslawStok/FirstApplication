@@ -7,11 +7,11 @@ class Game3Algorithm {
     val size = 5
 
     var gameArray = arrayOf(
-        booleanArrayOf(false, false, false, false, true),
-        booleanArrayOf(false, false, false, false, false),
-        booleanArrayOf(false, false, false, false, false),
-        booleanArrayOf(false, false, false, false, false),
-        booleanArrayOf(false, false, false, false, false)
+        BooleanArray(size){false},
+        BooleanArray(size){false},
+        BooleanArray(size){false},
+        BooleanArray(size){false},
+        BooleanArray(size){false}
     )
 
     fun arrayRowToString(row: Int): String {
@@ -43,6 +43,6 @@ class Game3Algorithm {
     }
 
     fun testGameAgl() {
-        invertRegion(0, 1)
+        invertRegion(2, 2)
     }
 }
