@@ -32,10 +32,10 @@ class Game3Algorithm {
     fun invertRegion(row: Int, col: Int) {
         printGameArray()
 
-
         for (i in row - 1..row + 1)
             for (j in col - 1..col + 1) {
-                gameArray[i][j] = !gameArray[i][j]
+                if (i >= 0 && i <= size && j >= 0 && j <= size)
+                    gameArray[i][j] = !gameArray[i][j]
             }
 
 
@@ -43,6 +43,6 @@ class Game3Algorithm {
     }
 
     fun testGameAgl() {
-        invertRegion(1, 1)
+        invertRegion(0, 1)
     }
 }
