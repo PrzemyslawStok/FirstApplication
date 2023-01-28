@@ -35,11 +35,11 @@ class Game3Activity : AppCompatActivity() {
             android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f)
         )
 
-        params.width = 50
-        params.height = 50
+        params.width = 100
+        params.height = 100
 
-        for (row in 0..gameboardSize)
-            for (col in 0..gameboardSize) {
+        for (row in 0..gameboardSize-1)
+            for (col in 0..gameboardSize-1) {
                 val view = View(this)
                 val r = Random.nextInt(100, 255)
                 val color = Color.rgb(r, r, r)
