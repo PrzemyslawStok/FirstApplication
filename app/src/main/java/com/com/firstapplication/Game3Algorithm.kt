@@ -4,7 +4,7 @@ import android.util.Log
 
 class Game3Algorithm {
     val tag = "GameArray"
-    val size = 10
+    val size = 5
 
     var gameArray = Array(size) {
         BooleanArray(size) { false }

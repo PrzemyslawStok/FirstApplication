@@ -9,6 +9,8 @@ class Game3Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame3Binding
     lateinit var testButton: Button
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -17,8 +19,9 @@ class Game3Activity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        val gameAgl = Game3Algorithm()
+
         testButton.setOnClickListener {
-            val gameAgl = Game3Algorithm()
             gameAgl.testGameAgl()
         }
     }
