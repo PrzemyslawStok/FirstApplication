@@ -1,10 +1,13 @@
 package com.com.firstapplication
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
 import com.com.firstapplication.databinding.ActivityGame3Binding
+import kotlin.random.Random
 
 class Game3Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame3Binding
@@ -26,6 +29,20 @@ class Game3Activity : AppCompatActivity() {
 
         gameboardView.rowCount = gameboardSize
         gameboardView.columnCount = gameboardSize
+
+        val params = android.widget.GridLayout.LayoutParams(
+            android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f),
+            android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f)
+        )
+
+        for (row in 0..gameboardSize)
+            for (col in 0..gameboardSize) {
+                val view = View(this)
+                val r = Random.nextInt(100, 255)
+                val color = Color.rgb(r, r, r)
+                view.setBackgroundColor(color)
+                gameboardView.addView(view, params)
+            }
 
         testButton.setOnClickListener {
             gameAgl.testGameAgl()
