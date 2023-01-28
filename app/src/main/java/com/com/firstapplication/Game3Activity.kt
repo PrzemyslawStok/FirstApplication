@@ -35,6 +35,9 @@ class Game3Activity : AppCompatActivity() {
             android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f)
         )
 
+        params.width = 50
+        params.height = 50
+
         for (row in 0..gameboardSize)
             for (col in 0..gameboardSize) {
                 val view = View(this)
@@ -43,6 +46,7 @@ class Game3Activity : AppCompatActivity() {
                 view.setBackgroundColor(color)
                 gameboardView.addView(view, params)
             }
+
 
         testButton.setOnClickListener {
             gameAgl.testGameAgl()
