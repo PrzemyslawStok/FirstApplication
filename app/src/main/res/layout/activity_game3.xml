@@ -7,7 +7,7 @@
     tools:context=".Game3Activity">
 
     <androidx.gridlayout.widget.GridLayout
-        android:id="@+id/grid_layout"
+        android:id="@+id/gameboard_view"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:background="@color/cardview_shadow_start_color"
@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/grid_layout" />
+        app:layout_constraintTop_toBottomOf="@id/gameboard_view" />
 
 
 
