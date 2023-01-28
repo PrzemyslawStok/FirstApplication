@@ -2,9 +2,8 @@ package com.com.firstapplication
 
 import android.util.Log
 
-class Game3Algorithm {
+class Game3Algorithm(size: Int) {
     val tag = "GameArray"
-    val size = 5
 
     var gameArray = Array(size) {
         BooleanArray(size) { false }

@@ -11,7 +11,7 @@ class Game3Activity : AppCompatActivity() {
     lateinit var gameboardView: GridLayout
     lateinit var testButton: Button
 
-
+    val gameboardSize = 5
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,10 @@ class Game3Activity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val gameAgl = Game3Algorithm()
+        val gameAgl = Game3Algorithm(size = gameboardSize)
+
+        gameboardView.rowCount = gameboardSize
+        gameboardView.columnCount = gameboardSize
 
         testButton.setOnClickListener {
             gameAgl.testGameAgl()
