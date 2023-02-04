@@ -1,12 +1,15 @@
 package com.com.firstapplication
 
 import android.graphics.Color
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
 import com.com.firstapplication.databinding.ActivityGame3Binding
+
 
 class Game3Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame3Binding
@@ -16,6 +19,9 @@ class Game3Activity : AppCompatActivity() {
     lateinit var gameAlg: Game3Algorithm
     var trueColor: Int? = null
     var falseColor: Int? = null
+
+    var trueBackround: GradientDrawable? = null
+    var falseBackground: GradientDrawable? = null
 
     val gameboardSize = 5
 
@@ -51,6 +57,8 @@ class Game3Activity : AppCompatActivity() {
             for (col in 0..gameboardSize - 1) {
                 val view = View(this)
 
+                view.setPadding(2, 2, 2, 2)
+
                 view.setOnClickListener {
                     gameAlg.invertRegion(row, col)
                     drawGameboard()
@@ -76,7 +84,8 @@ class Game3Activity : AppCompatActivity() {
                 val field = gameAlg.gameArray[row][col]
 
                 if (field)
-                    trueColor?.let { view?.setBackgroundColor(it) }
+                    trueColor?.let {
+                        view?.setBackgroundColor(it) }
                 else
                     falseColor?.let { view?.setBackgroundColor(it) }
 
