@@ -14,7 +14,13 @@ class Game3Activity : AppCompatActivity() {
     lateinit var gameboardView: GridLayout
     lateinit var testButton: Button
 
+    lateinit var gameAlg: Game3Algorithm
+
     val gameboardSize = 5
+
+    var gameViewArray = Array(gameboardSize) {
+        //BooleanArray(gameboardSize) { false }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +28,10 @@ class Game3Activity : AppCompatActivity() {
         binding = ActivityGame3Binding.inflate(layoutInflater)
         testButton = binding.testButton
         gameboardView = binding.gameboardView
+        gameAlg = Game3Algorithm(size = gameboardSize)
 
         setContentView(binding.root)
 
-        val gameAgl = Game3Algorithm(size = gameboardSize)
 
         gameboardView.rowCount = gameboardSize
         gameboardView.columnCount = gameboardSize
@@ -38,18 +44,30 @@ class Game3Activity : AppCompatActivity() {
         params.width = 100
         params.height = 100
 
-        for (row in 0..gameboardSize-1)
-            for (col in 0..gameboardSize-1) {
+        for (row in 0..gameboardSize - 1)
+            for (col in 0..gameboardSize - 1) {
                 val view = View(this)
                 val r = Random.nextInt(100, 255)
                 val color = Color.rgb(r, r, r)
                 view.setBackgroundColor(color)
                 gameboardView.addView(view, params)
+
             }
 
+        //drawGameboard()
 
         testButton.setOnClickListener {
-            gameAgl.testGameAgl()
+            gameAlg.testGameAgl()
         }
+    }
+
+    fun drawGameboard() {
+        for (row in 0..gameboardSize - 1)
+            for (col in 0..gameboardSize - 1) {
+                val view = View(this)
+                val r = Random.nextInt(100, 255)
+                val color = Color.rgb(r, r, r)
+                view.setBackgroundColor(color)
+            }
     }
 }
