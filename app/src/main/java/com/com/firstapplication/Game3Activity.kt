@@ -7,7 +7,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
 import com.com.firstapplication.databinding.ActivityGame3Binding
-import kotlin.random.Random
 
 class Game3Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame3Binding
@@ -45,12 +44,15 @@ class Game3Activity : AppCompatActivity() {
             android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f)
         )
 
-        params.width = 100
-        params.height = 100
+        params.width = 150
+        params.height = 150
 
         for (row in 0..gameboardSize - 1)
             for (col in 0..gameboardSize - 1) {
                 val view = View(this)
+
+                view.setOnClickListener { it.setBackgroundColor(Color.BLUE) }
+
                 gameViewArray[row][col] = view
                 gameboardView.addView(gameViewArray[row][col], params)
             }
