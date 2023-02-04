@@ -51,7 +51,10 @@ class Game3Activity : AppCompatActivity() {
             for (col in 0..gameboardSize - 1) {
                 val view = View(this)
 
-                view.setOnClickListener { it.setBackgroundColor(Color.BLUE) }
+                view.setOnClickListener {
+                    gameAlg.invertRegion(row, col)
+                    drawGameboard()
+                }
 
                 gameViewArray[row][col] = view
                 gameboardView.addView(gameViewArray[row][col], params)
