@@ -15,11 +15,13 @@ class Game3Activity : AppCompatActivity() {
     lateinit var testButton: Button
 
     lateinit var gameAlg: Game3Algorithm
+    var trueColor: Int? = null
+    var falseColor: Int? = null
 
     val gameboardSize = 5
 
     var gameViewArray = Array(gameboardSize) {
-        //BooleanArray(gameboardSize) { false }
+        Array<View?>(gameboardSize) { null }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +32,10 @@ class Game3Activity : AppCompatActivity() {
         gameboardView = binding.gameboardView
         gameAlg = Game3Algorithm(size = gameboardSize)
 
-        setContentView(binding.root)
+        trueColor = Color.rgb(200, 200, 200)
+        falseColor = Color.rgb(100, 100, 100)
 
+        setContentView(binding.root)
 
         gameboardView.rowCount = gameboardSize
         gameboardView.columnCount = gameboardSize
@@ -47,27 +51,31 @@ class Game3Activity : AppCompatActivity() {
         for (row in 0..gameboardSize - 1)
             for (col in 0..gameboardSize - 1) {
                 val view = View(this)
-                val r = Random.nextInt(100, 255)
-                val color = Color.rgb(r, r, r)
-                view.setBackgroundColor(color)
-                gameboardView.addView(view, params)
-
+                gameViewArray[row][col] = view
+                gameboardView.addView(gameViewArray[row][col], params)
             }
 
-        //drawGameboard()
+        drawGameboard()
 
         testButton.setOnClickListener {
             gameAlg.testGameAgl()
+            drawGameboard()
         }
     }
 
     fun drawGameboard() {
         for (row in 0..gameboardSize - 1)
             for (col in 0..gameboardSize - 1) {
-                val view = View(this)
-                val r = Random.nextInt(100, 255)
-                val color = Color.rgb(r, r, r)
-                view.setBackgroundColor(color)
+
+                val view = gameViewArray[row][col]
+                val field = gameAlg.gameArray[row][col]
+
+                if (field)
+                    trueColor?.let { view?.setBackgroundColor(it) }
+                else
+                    falseColor?.let { view?.setBackgroundColor(it) }
+
+
             }
     }
 }
