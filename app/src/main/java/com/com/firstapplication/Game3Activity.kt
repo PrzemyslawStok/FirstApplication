@@ -6,10 +6,9 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.GridLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.gridlayout.widget.GridLayout
 import com.com.firstapplication.databinding.ActivityGame3Binding
-
 
 class Game3Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame3Binding
@@ -45,14 +44,6 @@ class Game3Activity : AppCompatActivity() {
         gameboardView.rowCount = gameboardSize
         gameboardView.columnCount = gameboardSize
 
-        val params = android.widget.GridLayout.LayoutParams(
-            android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f),
-            android.widget.GridLayout.spec(android.widget.GridLayout.UNDEFINED, 1f)
-        )
-
-        params.width = 150
-        params.height = 150
-
         for (row in 0..gameboardSize - 1)
             for (col in 0..gameboardSize - 1) {
                 val view = View(this)
@@ -63,6 +54,14 @@ class Game3Activity : AppCompatActivity() {
                     gameAlg.invertRegion(row, col)
                     drawGameboard()
                 }
+
+                val params = GridLayout.LayoutParams(
+                    GridLayout.spec(GridLayout.UNDEFINED, 1f),
+                    GridLayout.spec(GridLayout.UNDEFINED, 1f)
+                )
+
+                params.width = 0
+                params.height = 0
 
                 gameViewArray[row][col] = view
                 gameboardView.addView(gameViewArray[row][col], params)
