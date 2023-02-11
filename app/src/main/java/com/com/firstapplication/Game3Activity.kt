@@ -113,7 +113,6 @@ class Game3Activity : AppCompatActivity() {
                 else
                     falseBackground?.let { view?.background = it }
 
-
             }
     }
 
