@@ -40,4 +40,12 @@ class Game3Algorithm(size: Int) {
     fun testGameAgl() {
         invertRegion(2, 2)
     }
+
+    fun resetGameArray() {
+        for (row in 0..gameArray.size - 1) {
+            for (col in 0..gameArray.size - 1){
+                gameArray[row][col] = false
+            }
+        }
+    }
 }

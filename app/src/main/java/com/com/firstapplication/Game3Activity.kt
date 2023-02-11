@@ -13,7 +13,7 @@ import com.com.firstapplication.databinding.ActivityGame3Binding
 class Game3Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame3Binding
     lateinit var gameboardView: GridLayout
-    lateinit var testButton: Button
+    lateinit var resetButton: Button
 
     lateinit var gameAlg: Game3Algorithm
     var trueColor: Int? = null
@@ -32,7 +32,7 @@ class Game3Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityGame3Binding.inflate(layoutInflater)
-        testButton = binding.testButton
+        resetButton = binding.resetButton
         gameboardView = binding.gameboardView
         gameAlg = Game3Algorithm(size = gameboardSize)
 
@@ -40,6 +40,7 @@ class Game3Activity : AppCompatActivity() {
         falseColor = Color.rgb(100, 100, 100)
 
         trueBackround = ResourcesCompat.getDrawable(resources, R.drawable.true_background, null)
+        falseBackground = ResourcesCompat.getDrawable(resources, R.drawable.false_background, null)
 
         setContentView(binding.root)
 
@@ -71,8 +72,8 @@ class Game3Activity : AppCompatActivity() {
 
         drawGameboard()
 
-        testButton.setOnClickListener {
-            gameAlg.testGameAgl()
+        resetButton.setOnClickListener {
+            gameAlg.resetGameArray()
             drawGameboard()
         }
     }
@@ -85,13 +86,17 @@ class Game3Activity : AppCompatActivity() {
                 val field = gameAlg.gameArray[row][col]
 
                 if (field)
-                    trueBackround?.let{
+                    trueBackround?.let {
                         view?.background = it
                     }
                 else
-                    falseColor?.let { view?.setBackgroundColor(it) }
+                    falseBackground?.let { view?.background = it }
 
 
             }
+    }
+
+    fun resetGame(){
+
     }
 }
