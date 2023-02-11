@@ -1,13 +1,13 @@
 package com.com.firstapplication
 
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import com.com.firstapplication.databinding.ActivityGame3Binding
 
 class Game3Activity : AppCompatActivity() {
@@ -84,9 +84,11 @@ class Game3Activity : AppCompatActivity() {
 
                 if (field)
                     trueColor?.let {
-                        view?.setBackgroundColor(it) }
+                        view?.setBackgroundColor(it)
+                    }
                 else
                     falseColor?.let { view?.setBackgroundColor(it) }
+
 
 
             }
