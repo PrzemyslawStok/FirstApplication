@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.com.firstapplication.databinding.ActivityGame3Binding
@@ -14,6 +16,8 @@ class Game3Activity : AppCompatActivity() {
     lateinit var binding: ActivityGame3Binding
     lateinit var gameboardView: GridLayout
     lateinit var resetButton: Button
+
+    lateinit var trialsTextView: TextView
 
     lateinit var gameAlg: Game3Algorithm
     var trueColor: Int? = null
@@ -35,6 +39,8 @@ class Game3Activity : AppCompatActivity() {
         binding = ActivityGame3Binding.inflate(layoutInflater)
         resetButton = binding.resetButton
         gameboardView = binding.gameboardView
+        trialsTextView = binding.trialsNumberTextView
+
         gameAlg = Game3Algorithm(size = gameboardSize)
 
         trueColor = Color.rgb(200, 200, 200)
@@ -59,9 +65,17 @@ class Game3Activity : AppCompatActivity() {
                     drawGameboard()
                     if (checkGame()) {
                         trialsNumber = 0
+                        trialsTextView.text = "${trialsNumber}"
                         resetGame()
+                        Toast.makeText(
+                            this,
+                            "Poziom ukończony po ${trialsNumber} próbach.",
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
                     } else {
                         trialsNumber++
+                        trialsTextView.text = "${trialsNumber}"
                     }
                 }
 
@@ -106,6 +120,7 @@ class Game3Activity : AppCompatActivity() {
         gameAlg.resetGameArray()
         drawGameboard()
         trialsNumber = 0
+        trialsTextView.text = "${trialsNumber}"
     }
 
     fun checkGame(): Boolean {
