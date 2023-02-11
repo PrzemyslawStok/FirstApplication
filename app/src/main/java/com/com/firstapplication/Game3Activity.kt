@@ -64,15 +64,15 @@ class Game3Activity : AppCompatActivity() {
                     gameAlg.invertRegion(row, col)
                     drawGameboard()
                     if (checkGame()) {
-                        trialsNumber = 0
-                        trialsTextView.text = "${trialsNumber}"
-                        resetGame()
                         Toast.makeText(
                             this,
                             "Poziom ukończony po ${trialsNumber} próbach.",
                             Toast.LENGTH_LONG
                         )
                             .show()
+                        trialsNumber = 0
+                        trialsTextView.text = "${trialsNumber}"
+                        resetGame()
                     } else {
                         trialsNumber++
                         trialsTextView.text = "${trialsNumber}"
