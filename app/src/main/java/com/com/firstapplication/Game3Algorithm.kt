@@ -48,4 +48,16 @@ class Game3Algorithm(size: Int) {
             }
         }
     }
+
+    fun checkGameArray():Boolean {
+        var gameEnd = true
+        for (row in 0..gameArray.size - 1) {
+            for (col in 0..gameArray.size - 1){
+                if(gameArray[row][col]){
+                    gameEnd = false
+                }
+            }
+        }
+        return gameEnd
+    }
 }

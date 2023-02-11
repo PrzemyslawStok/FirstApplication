@@ -23,6 +23,7 @@ class Game3Activity : AppCompatActivity() {
     var falseBackground: Drawable? = null
 
     val gameboardSize = 5
+    var trialsNumber = 0
 
     var gameViewArray = Array(gameboardSize) {
         Array<View?>(gameboardSize) { null }
@@ -56,6 +57,12 @@ class Game3Activity : AppCompatActivity() {
                 view.setOnClickListener {
                     gameAlg.invertRegion(row, col)
                     drawGameboard()
+                    if (checkGame()) {
+                        trialsNumber = 0
+                        resetGame()
+                    } else {
+                        trialsNumber++
+                    }
                 }
 
                 val params = GridLayout.LayoutParams(
@@ -73,8 +80,7 @@ class Game3Activity : AppCompatActivity() {
         drawGameboard()
 
         resetButton.setOnClickListener {
-            gameAlg.resetGameArray()
-            drawGameboard()
+            resetGame()
         }
     }
 
@@ -96,7 +102,13 @@ class Game3Activity : AppCompatActivity() {
             }
     }
 
-    fun resetGame(){
+    fun resetGame() {
+        gameAlg.resetGameArray()
+        drawGameboard()
+        trialsNumber = 0
+    }
 
+    fun checkGame(): Boolean {
+        return gameAlg.checkGameArray()
     }
 }
