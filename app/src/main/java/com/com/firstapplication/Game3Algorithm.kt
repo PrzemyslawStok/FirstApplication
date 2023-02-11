@@ -1,6 +1,7 @@
 package com.com.firstapplication
 
 import android.util.Log
+import kotlin.random.Random
 
 class Game3Algorithm(size: Int) {
     val tag = "GameArray"
@@ -47,6 +48,8 @@ class Game3Algorithm(size: Int) {
                 gameArray[row][col] = false
             }
         }
+
+        addRandomMoves(3)
     }
 
     fun checkGameArray(): Boolean {
@@ -58,7 +61,15 @@ class Game3Algorithm(size: Int) {
                 }
             }
         }
-        Log.v(tag,"checkGame: $gameEnd")
+        Log.v(tag, "checkGame: $gameEnd")
         return gameEnd
+    }
+
+    fun addRandomMoves(moves: Int) {
+        for (i in 0..moves) {
+            val row = Random.nextInt(0, gameArray.size - 1)
+            val col = Random.nextInt(0, gameArray.size - 1)
+            invertRegion(row, col)
+        }
     }
 }

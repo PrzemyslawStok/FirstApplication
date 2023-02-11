@@ -42,6 +42,7 @@ class Game3Activity : AppCompatActivity() {
         trialsTextView = binding.trialsNumberTextView
 
         gameAlg = Game3Algorithm(size = gameboardSize)
+        gameAlg.resetGameArray()
 
         trueColor = Color.rgb(200, 200, 200)
         falseColor = Color.rgb(100, 100, 100)
